@@ -13,13 +13,13 @@
 #theme                  : "minimal-mistakes-jekyll"
 remote_theme: "mmistakes/minimal-mistakes@4.16.0"
 # remote_theme           : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin    : "air" #"default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin    : "neon" #"default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale                   : "en-US" 
 title                    : "ایلیا میرزایی"
 title_separator          : "-"
-name                     : "Iliya.mi "
+name                     : "Iliya Mirzaei "
 description              : "Welcome to my web site."
 url                      : #http://webpages.iust.ac.ir # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : #/sauleh # the subpath of your site, e.g. "/blog"
@@ -32,7 +32,7 @@ words_per_minute         : 200
 comments:
   provider               : "disqus" # false (default), "disqus", "discourse", "facebook", "staticman", "staticman_v2", "utterances", "custom"
   disqus:
-    shortname            : sauleh # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
+    shortname            : Iliya.mi # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
   discourse:
     server               : # https://meta.discourse.org/t/embedding-discourse-comments-via-javascript/31963 , e.g.: meta.discourse.org
   facebook:
@@ -84,9 +84,9 @@ naver_site_verification  :
 
 # Social Sharing
 twitter:
-  username               : sauleh_e
+  username               : not-yet
 facebook:
-  username               : sauleh.eetemadi
+  username               : not-yet
   app_id                 :
   publisher              :
 og_image                 : # Open Graph/Twitter default site image
@@ -107,16 +107,16 @@ analytics:
 
 # Site Author
 author:
-  name             : "Sauleh Eetemadi"
-  avatar           : "/assets/images/bio-photo.jpg"
-  bio              : I'm an assistant professor of Computer Science at IUST. I enjoy learning new things and sharing what I know with others. So far I've learned some science, math, computers, NLP, IT, BJJ, MMA, swimming, diving, flying... 
+  name             : "Iliya Mirzaei"
+  avatar           : "/assets/images/photo_2020-01-31_15-52-56"
+  bio              : I'm a freshman student at Iran University of Science and Technology (IUST). I'm a hard-worker guy which like to spend lots of time for learning and earning expriences. Programming, gym, reading books and news, thinking and analyzing people's lifestyle and behaviour (in my mind) are my favourite hobies.
   location         : "تهران"
-  email            : sauleh@gmail.com
-  twitter: sauleh_e
-  linkedin: sauleh
+  email            : iliya.mi78@gmail.com
+  twitter: not yet
+  linkedin: 
   google_scholar: Q25s5KkAAAAJ
-  github: sauleh
-  instagram: saulehe
+  github: iliyami
+  instagram: iliya_mi
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
