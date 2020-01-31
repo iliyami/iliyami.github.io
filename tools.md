@@ -2,15 +2,14 @@
 layout: single
 author_profile: true
 permalink: /tools/
-title: My Favorite Tools
+title: My Favorite Tools And Apps
 tags: [tools, favorite]
 modified: 12-14-2019
 comments: true
 ---
-I like to list my favorite tools, so I can keep track of them and I can also point friends/students/colleagues to this list. This is a first draft. I will add more items as I remember/discover/have time.
+I like to list my favorite tools, so I can keep track of them and I can share them with my mates and friends.
 * [Windows SysInternals](https://docs.microsoft.com/en-us/sysinternals/): Collection of the best and most advanced system tools for the windows operating system. It has many tools that deserve their own separate entry. 
 * [WinDirStat](https://windirstat.net/): Why is my hard disk full? The best free tool I found to answer this question.
-* [Meld](https://meldmerge.org): I love Beyond Compare but it is not free. Meld is the best free tool I found. I've also used WinMerge, but Meld seems to have a more intuitive UI.
-* [FlashBack Express](https://www.flashbackrecorder.com/express/): I've used the free version of Flashback Express for several semesters to record my lectures. It's the best free tool I've found and I have no complaints!
 * [VSCode](https://code.visualstudio.com) is my favorite general purpose editor. Specially when working in a 'Directory'. I regularly use it for python, HTML, LaTeX, C++, Jekyll, ... .
 * [ConEMU](https://conemu.github.io): I open many terminal windows for various tasks. It's nice to have them all in one window, but different tabs.
+* [Spotify](https://www.spotify.com) I really enjoy listening to musics  and have my playlists everywhere and also notice for new songs, so spotify will handle them for me. you can use it free or with a premium account.
