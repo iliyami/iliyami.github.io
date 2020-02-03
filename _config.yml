@@ -112,7 +112,6 @@ author:
   bio              : I'm a freshman student at Iran University of Science and Technology (IUST). I'm a hard-worker guy which like to spend lots of time for learning and earning expriences. Programming, gym, reading books and news, thinking and analyzing people's lifestyle and behaviour (in my mind) are my favourite hobies.
   location         : "تهران"
   email            : iliya.mi78@gmail.com
-  twitter: not yet
   linkedin: iliyami
   google_scholar: Q25s5KkAAAAJ
   github: iliyami
@@ -124,12 +123,6 @@ author:
     - label: "Website"
       icon: "fas fa-fw fa-link"
       # url: "https://your-website.com"
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      # url: "https://twitter.com/"
-    - label: "Facebook"
-      icon: "fab fa-fw fa-facebook-square"
-      # url: "https://facebook.com/"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       # url: "https://github.com/"
