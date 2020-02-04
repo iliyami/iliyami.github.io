@@ -78,12 +78,12 @@ google:
   instant_search         : # false (default), true
 # SEO Related
 google_site_verification : googled4586de1ef44dcdd.html
-bing_site_verification   : <meta name="msvalidate.01" content="0FC3FD70512616B052E755A56F8952D" />
+bing_site_verification   : 
 yandex_site_verification :
 naver_site_verification  :
 
 # Social Sharing
-twitter:
+twitter:  
   username               :
 facebook:
   username               :
