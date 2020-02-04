@@ -1,11 +1,11 @@
 ---
 layout: single
 author_profile: true
-permalink: /About/
-title: Bio
+permalink: /about/
+title: About me
 tags: [bio, about, info]
 modified: 4-14-2019
-comments: false
+comments: true
 ---
 
 > About Me
