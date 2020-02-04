@@ -17,22 +17,22 @@ minimal_mistakes_skin    : "dark" #"default" # "air", "aqua", "contrast", "dark"
 
 # Site Settings
 locale                   : "en-US" 
-title                    : "ایلیا میرزایی"
+title                    : "Iliya Mirzaei"
 title_separator          : "-"
-name                     : "Iliya Mirzaei "
-description              : "Welcome to my web site."
+name                     : "Iliya Mirzaei"
+description              : "Welcome to Iliya's web site."
 url                      : #http://webpages.iust.ac.ir # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : #/Iliya Mirzaei # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
-logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
+logo                     : "/assets/images/Logo.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
 # breadcrumbs            : false # true, false (default)
 words_per_minute         : 200
 comments:
   provider               : "disqus" # false (default), "disqus", "discourse", "facebook", "staticman", "staticman_v2", "utterances", "custom"
   disqus:
-    shortname            : Iliya.mi # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
+    shortname            : Iliya # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
   discourse:
     server               : # https://meta.discourse.org/t/embedding-discourse-comments-via-javascript/31963 , e.g.: meta.discourse.org
   facebook:
@@ -84,9 +84,9 @@ naver_site_verification  :
 
 # Social Sharing
 twitter:
-  username               : not-yet
+  username               :
 facebook:
-  username               : not-yet
+  username               :
   app_id                 :
   publisher              :
 og_image                 : # Open Graph/Twitter default site image
@@ -109,7 +109,7 @@ analytics:
 author:
   name             : "Iliya Mirzaei"
   avatar           : "/assets/images/P1.jpg"
-  bio              : I'm a freshman student at Iran University of Science and Technology (IUST). I'm a hard-worker guy which like to spend lots of time for learning and earning expriences. Programming, gym, reading books and news, thinking and analyzing people's lifestyle and behaviour (in my mind) are my favourite hobies.
+  bio              : I'm a computer engineering freshman student at Iran University of Science and Technology (IUST). I'm a hard-worker guy which like to spend lots of time for learning and earning expriences. Programming, gym, reading books and news, thinking and analyzing people's lifestyle and behaviour (in my mind) are my favourite hobies.
   location         : "تهران"
   email            : iliya.mi78@gmail.com
   linkedin: iliyami
