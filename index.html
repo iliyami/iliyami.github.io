@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com; font-src 'self' https://fonts.gstatic.com https://unpkg.com; img-src 'self' data:; connect-src 'self' https://api.github.com; base-uri 'self'; form-action 'none'">
+<title>Iliya Mirzaei — Distributed Systems &amp; DAG-based BFT</title>
+<meta name="description" content="Iliya Mirzaei — Ph.D. researcher at Stony Brook working on MEV and transaction-ordering in DAG-based BFT consensus (Mysticeti, Bullshark).">
+<link rel="canonical" href="https://iliyami.github.io/">
+<meta property="og:title" content="Iliya Mirzaei — Distributed Systems &amp; DAG-based BFT">
+<meta property="og:description" content="MEV and transaction-ordering research in DAG-based BFT consensus, proven in Rust. Stony Brook University.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://iliyami.github.io/">
+<meta property="og:image" content="https://iliyami.github.io/assets/headshot.jpeg">
+<meta property="og:image:alt" content="Iliya Mirzaei">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css" integrity="sha384-6p9AefaqUhEVheRlj1mpAkbngHXy9mbYMrIdcIt4Jlc9lOLIablJq3bBsLOjGwZ7" crossorigin="anonymous">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css" integrity="sha384-pPVoXE8ft+zxKtxIDDI7SfTK6y95NHm4qa+hKEg/hs8VkjW5IP+9/dGOPCbDpUPl" crossorigin="anonymous">
+<link rel="stylesheet" href="styles.css">
+<script src="main.js" defer></script>
+</head>
+<body data-theme="dark">
+<a class="skip-link" href="#research">Skip to content</a>
+<canvas id="dag-canvas" aria-hidden="true"></canvas>
+<div class="bg-glow" aria-hidden="true"></div>
+
+<nav class="site-nav" aria-label="Primary">
+  <a class="brand" href="#top"><span class="brand-dot" aria-hidden="true"></span>iliya.dev</a>
+  <div class="nav-links">
+    <a href="#research">Research</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <button id="theme-toggle" class="theme-toggle" aria-label="Toggle color theme"><i class="ph ph-sun"></i></button>
+</nav>
+
+<main id="top">
+  <header class="hero">
+    <div>
+      <p class="kicker"><i class="ph ph-graph"></i> Distributed Systems · DAG-based BFT</p>
+      <h1>Iliya Mirzaei</h1>
+      <p class="hero-tagline">I find where <strong>fairness breaks</strong> in DAG-based BFT consensus, and prove it in Rust.</p>
+      <p class="hero-bio">Ph.D. researcher at Stony Brook (SeeMoRe Lab) working on MEV and transaction-ordering vulnerabilities in protocols like Mysticeti and Bullshark. Before that: 3+ years shipping production software to 200K+ users. Open to Summer 2027 roles in blockchain infrastructure, consensus, and security.</p>
+      <div class="hero-actions">
+        <a href="#research" class="btn btn-primary"><i class="ph ph-flask"></i>View research</a>
+        <a href="https://github.com/iliyami" target="_blank" rel="noopener" class="btn btn-secondary"><i class="ph ph-github-logo"></i>GitHub</a>
+        <a href="Iliya_Mirzaei_Resume.pdf" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-file-pdf"></i>Résumé</a>
+        <a href="mailto:imirzaei@cs.stonybrook.edu" class="btn btn-ghost"><i class="ph ph-envelope-simple"></i>Email me</a>
+      </div>
+      <div class="stat-band glass">
+        <div><div class="num">4</div><div class="lbl">Publications</div></div>
+        <div><div class="num" data-stars="macsai">1.4K+</div><div class="lbl">GitHub stars</div></div>
+        <div><div class="num">200K+</div><div class="lbl">users shipped to</div></div>
+        <div><div class="num">Top 2%</div><div class="lbl">national exam, of 164K</div></div>
+      </div>
+    </div>
+    <div class="portrait">
+      <div class="portrait-ring">
+        <div class="orbit" aria-hidden="true"></div>
+        <span class="n1" aria-hidden="true"></span><span class="n2" aria-hidden="true"></span><span class="n3" aria-hidden="true"></span>
+        <img src="assets/headshot.jpeg" alt="Iliya Mirzaei" width="300" height="300">
+      </div>
+      <p class="status"><span class="dot-ok"></span>node: stony-brook · consensus reached</p>
+    </div>
+  </header>
+
+  <section id="research" aria-labelledby="research-h">
+    <div class="section-head"><h2 class="section-label">01 / Research</h2><div class="rule"></div></div>
+    <div class="section-head" style="justify-content:space-between;flex-wrap:wrap;gap:16px">
+      <h2 id="research-h" style="margin:0">Publications</h2>
+      <a href="https://scholar.google.com/citations?user=60kwIvsAAAAJ&amp;hl=en" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-graduation-cap"></i>Google Scholar</a>
+    </div>
+    <p class="muted" style="max-width:560px;margin-bottom:28px">Ordering bias, MEV extraction, and fairness in DAG-based BFT — measured on real implementations, not just on paper.</p>
+    <div class="pub-list">
+      <article class="pub glass">
+        <div>
+          <div class="tags"><span class="tag tag-accent">arXiv:2607.13378</span><span class="tag tag-outline">first author</span></div>
+          <h3>Fair on the Surface: Transaction-Ordering Bias and MEV in Mysticeti DAG-based BFT Protocol</h3>
+          <p class="authors">I. Mirzaei, M. J. Amiri · 2026</p>
+        </div>
+        <div class="actions">
+          <a href="https://arxiv.org/abs/2607.13378" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-arrow-square-out"></i>arXiv</a>
+          <button type="button" data-bib="fair" class="btn btn-secondary"><i class="ph ph-copy"></i>BibTeX</button>
+        </div>
+      </article>
+      <article class="pub glass">
+        <div>
+          <div class="tags"><span class="tag tag-accent">arXiv:2607.28576</span><span class="tag tag-outline">first author</span></div>
+          <h3>Sample More, Reflect Less: Self-Refine and Reflexion Lose to Repeated Sampling at Equal Token Cost, from 1.5B to 7B</h3>
+          <p class="authors">I. Mirzaei · 2026</p>
+        </div>
+        <div class="actions">
+          <a href="https://arxiv.org/abs/2607.28576" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-arrow-square-out"></i>arXiv</a>
+          <button type="button" data-bib="sample" class="btn btn-secondary"><i class="ph ph-copy"></i>BibTeX</button>
+        </div>
+      </article>
+      <article class="pub glass">
+        <div>
+          <div class="tags"><span class="tag tag-accent">arXiv:2606.29574</span><span class="tag tag-outline">first author</span></div>
+          <h3>Stateless Network-Aware Adaptive Bitrate Streaming over IPFS</h3>
+          <p class="authors">I. Mirzaei, S. J. Mojaveri, A. Najafizadeh · 2026</p>
+        </div>
+        <div class="actions">
+          <a href="https://arxiv.org/abs/2606.29574" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-arrow-square-out"></i>arXiv</a>
+          <button type="button" data-bib="ipfs" class="btn btn-secondary"><i class="ph ph-copy"></i>BibTeX</button>
+        </div>
+      </article>
+      <article class="pub glass">
+        <div>
+          <div class="tags"><span class="tag tag-accent">NEDB Day 2026 · Poster</span><span class="tag tag-outline">first author</span></div>
+          <h3>Fishing in Deeper Waters: A Comprehensive MEV Analysis of DAG-Based Blockchains</h3>
+          <p class="authors">I. Mirzaei, M. J. Amiri · 2026</p>
+        </div>
+        <div class="actions">
+          <a href="https://nedbday.github.io/2026/download/posters/poster_34.pdf" target="_blank" rel="noopener" class="btn btn-ghost"><i class="ph ph-arrow-square-out"></i>Poster</a>
+          <button type="button" data-bib="poster" class="btn btn-secondary"><i class="ph ph-copy"></i>BibTeX</button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="experience" aria-labelledby="experience-h">
+    <div class="section-head"><h2 class="section-label">02 / Experience</h2><div class="rule"></div></div>
+    <h2 id="experience-h">Commit history</h2>
+    <p class="muted" style="margin-bottom:32px">Research and industry, in causal order.</p>
+    <div class="timeline">
+      <ol>
+        <li class="job">
+          <a class="job-card glass" href="https://www3.cs.stonybrook.edu/~seemore/" target="_blank" rel="noopener">
+            <header><h3>Research Assistant <span class="org">· SeeMoRe Lab, Stony Brook</span></h3><time>Jan 2025 — present</time></header>
+            <p>MEV and ordering vulnerabilities in DAG-based BFT under Prof. Mohammad Amiri. Built a Rust benchmarking harness measuring ordering bias across Mysticeti, Bullshark and related protocols; first-authored a preprint and an accepted poster, and mentored a Simons Fellow through to a published poster.</p>
+          </a>
+        </li>
+        <li class="job">
+          <a class="job-card glass" href="https://github.com/Ethos-lab" target="_blank" rel="noopener">
+            <header><h3>Research Assistant <span class="org">· Ethos Security &amp; Privacy Lab, Stony Brook</span></h3><time>Sep — Dec 2024</time></header>
+            <p>ML security and forensics under Prof. Amir Rahmati: tracing model failures and attacks back to model versions, training-data lineage, and update history.</p>
+          </a>
+        </li>
+        <li class="job">
+          <a class="job-card glass" href="https://aihomedesign.com" target="_blank" rel="noopener">
+            <header><h3>Application Team Lead <span class="org">· AI Home Design</span></h3><time>Apr — Jul 2024</time></header>
+            <p>Built the Android/iOS app from scratch in Flutter for an AI home-design platform; cross-platform architecture cut dev time ~40% vs native, real-time rendering at 60fps.</p>
+          </a>
+        </li>
+        <li class="job">
+          <div class="job-card glass">
+            <header><h3>Software Engineer <span class="org">· Plates (Paris)</span></h3><time>Jul — Oct 2023</time></header>
+            <p>Shipped the chat feature (Android/iOS/PWA) for a peer-to-peer food platform — four Firebase services, &lt;100ms real-time messaging, zero critical production bugs.</p>
+          </div>
+        </li>
+        <li class="job">
+          <div class="job-card glass">
+            <header><h3>Software Engineer <span class="org">· Vusic</span></h3><time>Nov 2022 — Jul 2023</time></header>
+            <p>iOS + PWA apps for the country’s largest music streaming platform: 200K+ users, 21K DAU; cut load time 35% and memory 25% via profiling.</p>
+          </div>
+        </li>
+        <li class="job">
+          <div class="job-card glass">
+            <header><h3>Technical Lead, Flutter <span class="org">· Black Bit</span></h3><time>Sep 2021 — Nov 2022</time></header>
+            <p>Led 5 developers across 10+ client projects; 98% on-time delivery, CI/CD from 4 hours to 15 minutes with FastLane.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="projects" aria-labelledby="projects-h">
+    <div class="section-head"><h2 class="section-label">03 / Projects</h2><div class="rule"></div></div>
+    <h2 id="projects-h" style="margin-bottom:28px">Selected builds</h2>
+    <div class="project-grid">
+      <article class="project glass">
+        <div class="top"><i class="ph ph-shield-check"></i><span class="stars"><i class="ph-fill ph-star"></i><span data-stars="macsai">1.4K</span></span></div>
+        <h3>MacSai</h3>
+        <p>Free, Apple-notarized alternative to CleanMyMac — cleanup, performance, and malware scanning in Swift 6 / SwiftUI.</p>
+        <div class="tags"><span class="tag tag-outline">Swift 6</span><span class="tag tag-outline">SwiftUI</span><span class="tag tag-outline">Open source</span></div>
+        <a class="repo" href="https://github.com/iliyami/MacSai" target="_blank" rel="noopener">View on GitHub <i class="ph ph-arrow-right"></i></a>
+      </article>
+      <article class="project glass">
+        <div class="top"><i class="ph ph-lightning"></i></div>
+        <h3>MEV Arbitrage Bot on Sui</h3>
+        <p>Personal arbitrage bot targeting transaction-ordering opportunities on Sui, built on deep knowledge of Mysticeti and Sui’s transaction lifecycle. Source confidential.</p>
+        <div class="tags"><span class="tag tag-outline">Rust</span><span class="tag tag-outline">Sui</span><span class="tag tag-outline">MEV</span></div>
+      </article>
+      <article class="project glass">
+        <div class="top"><i class="ph ph-bank"></i><span class="stars">#1 in class</span></div>
+        <h3>Linear PBFT Banking System</h3>
+        <p>Byzantine fault-tolerant banking on Linear PBFT — consistent state machine replication even under malicious replicas.</p>
+        <div class="tags"><span class="tag tag-outline">PBFT</span><span class="tag tag-outline">Distributed systems</span></div>
+        <a class="repo" href="https://github.com/iliyami/PBFT" target="_blank" rel="noopener">View on GitHub <i class="ph ph-arrow-right"></i></a>
+      </article>
+      <article class="project glass">
+        <div class="top"><i class="ph ph-scales"></i><span class="stars">#1 in class</span></div>
+        <h3>Paxos Banking System</h3>
+        <p>Multi-Paxos state machine replication with full performance evaluation on the SmallBank benchmark.</p>
+        <div class="tags"><span class="tag tag-outline">Multi-Paxos</span><span class="tag tag-outline">SmallBank</span></div>
+        <a class="repo" href="https://github.com/iliyami/Multi-Paxos" target="_blank" rel="noopener">View on GitHub <i class="ph ph-arrow-right"></i></a>
+      </article>
+      <article class="project glass">
+        <div class="top"><i class="ph ph-broadcast"></i></div>
+        <h3>Telescope — ABR Proxy for IPFS</h3>
+        <p>Cache-aware adaptive bitrate proxy for IPFS: stateless Go-Fiber microservices with Prometheus + OpenTelemetry. Published as arXiv:2606.29574.</p>
+        <div class="tags"><span class="tag tag-outline">Go</span><span class="tag tag-outline">IPFS</span><span class="tag tag-outline">Observability</span></div>
+        <a class="repo" href="https://github.com/iliyami/telescope" target="_blank" rel="noopener">View on GitHub <i class="ph ph-arrow-right"></i></a>
+      </article>
+    </div>
+  </section>
+
+  <section id="skills" aria-labelledby="skills-h">
+    <div class="section-head"><h2 class="section-label">04 / Skills</h2><div class="rule"></div></div>
+    <h2 id="skills-h" style="margin-bottom:28px">Toolchain</h2>
+    <div class="skill-rows">
+      <div class="skill-row glass"><div class="grp">Languages</div><div class="items"><span class="tag tag-outline">Rust</span><span class="tag tag-outline">Go</span><span class="tag tag-outline">Python</span><span class="tag tag-outline">C/C++</span><span class="tag tag-outline">Dart</span><span class="tag tag-outline">Java</span><span class="tag tag-outline">JavaScript</span><span class="tag tag-outline">SQL</span></div></div>
+      <div class="skill-row glass"><div class="grp">Distributed systems</div><div class="items"><span class="tag tag-outline">BFT consensus</span><span class="tag tag-outline">Mysticeti</span><span class="tag tag-outline">Bullshark</span><span class="tag tag-outline">PBFT</span><span class="tag tag-outline">Paxos</span><span class="tag tag-outline">MEV analysis</span><span class="tag tag-outline">State machine replication</span></div></div>
+      <div class="skill-row glass"><div class="grp">Systems &amp; DevOps</div><div class="items"><span class="tag tag-outline">Linux kernel &amp; tracing</span><span class="tag tag-outline">Docker</span><span class="tag tag-outline">RabbitMQ</span><span class="tag tag-outline">Nginx</span><span class="tag tag-outline">CI/CD</span><span class="tag tag-outline">Prometheus</span><span class="tag tag-outline">OpenTelemetry</span></div></div>
+      <div class="skill-row glass"><div class="grp">Web &amp; mobile</div><div class="items"><span class="tag tag-outline">Flutter</span><span class="tag tag-outline">D3.js</span><span class="tag tag-outline">FastAPI</span><span class="tag tag-outline">PWA</span><span class="tag tag-outline">Firebase</span></div></div>
+      <div class="skill-row glass"><div class="grp">Databases</div><div class="items"><span class="tag tag-outline">Postgres</span><span class="tag tag-outline">MySQL</span><span class="tag tag-outline">MongoDB</span><span class="tag tag-outline">Neo4j</span><span class="tag tag-outline">Firestore</span><span class="tag tag-outline">SQL Server</span></div></div>
+    </div>
+  </section>
+
+  <section id="contact" aria-labelledby="contact-h">
+    <div class="contact-band">
+      <h2 class="section-label">05 / Contact</h2>
+      <h2 id="contact-h">Let's reach consensus.</h2>
+      <p>Hiring for consensus, blockchain infra, or security research — Summer 2027? I reply fast.</p>
+      <div class="links">
+        <a href="mailto:imirzaei@cs.stonybrook.edu" class="btn btn-primary"><i class="ph ph-envelope-simple"></i>imirzaei@cs.stonybrook.edu</a>
+        <a href="https://github.com/iliyami" target="_blank" rel="noopener" class="btn btn-secondary"><i class="ph ph-github-logo"></i>iliyami</a>
+        <a href="https://linkedin.com/in/iliyamirzaei" target="_blank" rel="noopener" class="btn btn-secondary"><i class="ph ph-linkedin-logo"></i>iliyamirzaei</a>
+        <a href="https://scholar.google.com/citations?user=60kwIvsAAAAJ&amp;hl=en" target="_blank" rel="noopener" class="btn btn-secondary"><i class="ph ph-graduation-cap"></i>Google Scholar</a>
+      </div>
+    </div>
+    <footer>
+      <span>© 2026 Iliya Mirzaei · Stony Brook, NY</span>
+      <button id="term-trigger" class="term-trigger" type="button" title="Open terminal (or press `)"><span class="dot-ok"></span>all replicas in agreement_</button>
+    </footer>
+  </section>
+</main>
+
+<div id="terminal" class="terminal" hidden role="dialog" aria-label="Terminal">
+  <div class="bar">
+    <span class="d" style="background:var(--accent)"></span><span class="d" style="background:var(--border)"></span><span class="d" style="background:var(--ok)"></span>
+    <span class="title">iliya@stony-brook — consensus-shell</span>
+    <button type="button" aria-label="Close terminal"><i class="ph ph-x"></i></button>
+  </div>
+  <div class="body">
+    <div>type 'help' to list commands</div>
+    <div class="in"><span class="p">❯</span><input aria-label="Terminal input" spellcheck="false"></div>
+  </div>
+</div>
+</body>
+</html>
