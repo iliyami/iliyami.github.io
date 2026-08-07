@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Only the homepage is canonical. The redirect stubs at /about/, /cv/, /blog/,
+       /tools/, /publications.html, /projects.html and /internships.html are all
+       noindex and deliberately left out. -->
+  <url>
+    <loc>https://iliyami.github.io/</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>
