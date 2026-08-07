@@ -252,7 +252,11 @@ const Term = {
       return;
     }
     this.print(['❯ ' + cmd]);
-    this.print(this.commands[c] || [`command not found: ${c} — try 'help'`]);
+    // Own-property check, not a bare lookup: 'constructor' and '__proto__' resolve
+    // up the prototype chain and would hand print() something non-iterable.
+    this.print(Object.hasOwn(this.commands, c)
+      ? this.commands[c]
+      : [`command not found: ${c}, try 'help'`]);
   },
 };
 
