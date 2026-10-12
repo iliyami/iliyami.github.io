@@ -143,10 +143,26 @@ const Dag = {
 /* ---------- BibTeX copy ---------- */
 const Bibtex = {
   entries: {
+    sigmod: `@inproceedings{mirzaei2027transaction,
+  title={Transaction Order Under Attack: Benchmarking MEV in DAG-based BFT Consensus Protocols},
+  author={Mirzaei, Iliya and Cai, Zichun and Wu, Chenyuan and Amiri, Mohammad Javad},
+  booktitle={Proceedings of the ACM SIGMOD International Conference on Management of Data},
+  year={2027}
+}`,
     fair: `@misc{mirzaei2026fair,
   title={Fair on the Surface: Transaction-Ordering Bias and MEV in Mysticeti DAG-based BFT Protocol},
   author={Mirzaei, Iliya and Amiri, Mohammad Javad},
   year={2026}, eprint={2607.13378}, archivePrefix={arXiv}
+}`,
+    spectrum: `@misc{mirzaei2026competition,
+  title={Competition, Collusion, and Corruption: The Spectrum of MEV Attacks on DAG-Based BFT Consensus Protocols},
+  author={Mirzaei, Iliya and Patel, Heer and Wu, Chenyuan and Amiri, Mohammad Javad},
+  year={2026}, eprint={2609.20069}, archivePrefix={arXiv}
+}`,
+    evage: `@misc{wen2026evage,
+  title={EVAGE: Autonomous MEV Generation and Adaptation via Multi-Agent Harness},
+  author={Wen, Yan and Cai, Zichun and Mirzaei, Iliya and Cai, Xiaohua and Amiri, Mohammad Javad and Chen, Haoxian and Wu, Chenyuan},
+  year={2026}, eprint={2609.27424}, archivePrefix={arXiv}
 }`,
     sample: `@misc{mirzaei2026sample,
   title={Sample More, Reflect Less: Self-Refine and Reflexion Lose to Repeated Sampling at Equal Token Cost, from 1.5B to 7B},
@@ -189,7 +205,7 @@ const Stars = {
       if (!res.ok) return;
       const repos = await res.json();
       const macsai = repos.find((r) => /macsai/i.test(r.name));
-      // Guard: only trust the fetch if it's plausibly the real 1.3K-star repo.
+      // Guard: only trust the fetch if it's plausibly the real 1.8K-star repo.
       if (!macsai || macsai.stargazers_count < 1000) return;
       const n = macsai.stargazers_count;
       const label = n >= 1000 ? (n / 1000).toFixed(1) + 'K' : String(n);
@@ -204,10 +220,13 @@ const Term = {
     help: ['help · whoami · pubs · stack · consensus · sudo · clear · exit'],
     whoami: ['Iliya Mirzaei — Ph.D. researcher, Stony Brook (SeeMoRe Lab).',
       'Breaking transaction ordering in DAG-based BFT, proving it in Rust.'],
-    pubs: ['[1] Fair on the Surface: Ordering Bias & MEV in Mysticeti (arXiv:2607.13378)',
-      '[2] Sample More, Reflect Less (arXiv:2607.28576)',
-      '[3] Stateless Network-Aware ABR over IPFS (arXiv:2606.29574)',
-      '[4] Fishing in Deeper Waters — NEDB Day 2026 poster'],
+    pubs: ['[1] Transaction Order Under Attack: Benchmarking MEV in DAG-BFT (SIGMOD 2027)',
+      '[2] Fair on the Surface: Ordering Bias & MEV in Mysticeti (arXiv:2607.13378)',
+      '[3] Competition, Collusion, and Corruption: MEV Attacks on DAG-BFT (arXiv:2609.20069)',
+      '[4] EVAGE: Autonomous MEV Generation via Multi-Agent Harness (arXiv:2609.27424)',
+      '[5] Sample More, Reflect Less (arXiv:2607.28576)',
+      '[6] Stateless Network-Aware ABR over IPFS (arXiv:2606.29574)',
+      '[7] Fishing in Deeper Waters — NEDB Day 2026 poster'],
     stack: ['Rust · Go · Python · C/C++ · Dart · SQL',
       'Mysticeti · Bullshark · PBFT · Paxos · Docker · Prometheus'],
     consensus: ['proposing block b_7f3a…', 'collecting votes… 2f+1 reached ✓',
