@@ -8,7 +8,7 @@
   --bg: #161826;
   --text: #e9e9ed;
   --muted: rgba(233, 233, 237, 0.58);
-  --faint: rgba(233, 233, 237, 0.38);
+  --faint: rgba(233, 233, 237, 0.55);
   /* SBU-red accent ramp (OKLCH-spaced) */
   --accent: #e0685f;
   --accent-100: #fdf2f0;
@@ -40,10 +40,10 @@
 body[data-theme="light"] {
   --bg: #f5f1f0;
   --text: #2f2523;
-  --muted: rgba(47, 37, 35, 0.62);
-  --faint: rgba(47, 37, 35, 0.42);
+  --muted: rgba(47, 37, 35, 0.76);
+  --faint: rgba(47, 37, 35, 0.68);
   --label: var(--accent-700);
-  --accent-strong: var(--accent-600);
+  --accent-strong: #a8463d;            /* accent-600 is 4.3:1 on --bg; this clears 4.5 */
   --glass: rgba(255, 255, 255, 0.55);
   --glass-strong: rgba(255, 255, 255, 0.78);
   --border: rgba(143, 59, 51, 0.28);
@@ -133,7 +133,7 @@ section { padding: 90px 0 30px; scroll-margin-top: 80px; }
 .brand-dot::after { animation: pulse 2.4s ease-in-out infinite; }
 .nav-links { display: flex; gap: 16px; font-size: 13px; }
 .nav-links a { color: var(--muted); text-decoration: none; }
-.nav-links a:hover { color: var(--accent-strong); }
+.nav-links a:hover, .nav-links a[aria-current="true"] { color: var(--accent-strong); }
 .theme-toggle {
   display: flex; align-items: center; justify-content: center; width: 30px; height: 30px;
   border-radius: 50%; border: 1px solid var(--border); background: transparent;
@@ -157,7 +157,7 @@ section { padding: 90px 0 30px; scroll-margin-top: 80px; }
 .stat-band > div { flex: 1; padding: 14px 18px; border-right: 1px solid var(--border-soft); }
 .stat-band > div:last-child { border-right: none; }
 .stat-band .num { font-size: 22px; font-weight: 600; color: var(--accent-strong); }
-.stat-band .lbl { font-size: 11.5px; color: var(--faint); }
+.stat-band .lbl { font-size: 12px; color: var(--faint); }
 /* .portrait is the flow column (ring, then status); .portrait-ring is the fixed
    300px circle the orbit and node dots position against. */
 .portrait { width: 300px; margin: 0 auto; animation: float 7s ease-in-out infinite; display: flex; flex-direction: column; align-items: center; }
@@ -189,6 +189,8 @@ section { padding: 90px 0 30px; scroll-margin-top: 80px; }
 .pub .tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 9px; }
 .pub .actions { display: flex; gap: 8px; }
 .pub .actions .btn { font-size: 12.5px; }
+.pub-featured { border-color: var(--border); background: linear-gradient(135deg, color-mix(in srgb, var(--accent) 9%, var(--glass)), var(--glass) 60%); }
+.pub .tldr { font-size: 13.5px; color: var(--muted); margin: 10px 0 0; max-width: 680px; line-height: 1.55; }
 
 /* timeline */
 .timeline { position: relative; padding-left: 34px; }
@@ -293,16 +295,27 @@ footer { display: flex; justify-content: space-between; align-items: center; mar
   .stat-band > div { min-width: 0; }
 }
 @media (max-width: 640px) {
-  .site-nav { gap: 12px; padding: 8px 14px; max-width: 94vw; overflow-x: auto; }
-  .nav-links { gap: 11px; font-size: 12px; }
+  /* Brand text and the Skills link go so the theme toggle stays on screen at 360px. */
+  .site-nav { gap: 12px; padding: 6px 8px 6px 14px; max-width: calc(100vw - 24px); }
+  .brand-text, .nav-links .nav-optional { display: none; }
+  .nav-links { gap: 12px; font-size: 12.5px; }
   .nav-links a { flex: none; }
+  /* Actions drop under the title instead of squeezing it into a narrow column. */
+  .pub { grid-template-columns: 1fr; gap: 14px; padding: 18px; }
   main { padding: 0 18px; }
   section { padding-top: 64px; }
-  /* Three tiles won't fit side by side on a phone without the labels wrapping,
-     so stack them into full-width rows split by horizontal rules. */
-  .stat-band > div { min-width: 100%; border-right: none; }
-  .stat-band > div + div { border-top: 1px solid var(--border-soft); }
+  .stat-band > div { padding: 12px 10px; text-align: center; }
+  .stat-band .num { font-size: 20px; }
+  .stat-band .lbl { font-size: 11.5px; }
   .portrait { width: 230px; }
   .portrait-ring, .portrait img { width: 230px; height: 230px; }
   .portrait .status { margin-top: 36px; font-size: 11.5px; padding: 7px 13px; }
+}
+/* Touch screens: 44px minimum targets. */
+@media (pointer: coarse) {
+  .btn { min-height: 44px; }
+  .nav-links a { padding: 12px 0; }
+  .site-nav .brand { padding: 12px 10px; margin-left: -10px; }
+  .theme-toggle { width: 40px; height: 40px; }
+  .project .repo { padding: 10px 0; }
 }

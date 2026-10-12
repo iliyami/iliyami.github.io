@@ -10,7 +10,7 @@ Live at **https://iliyami.github.io** (GitHub Pages, `iliyami/iliyami.github.io`
 site/
 ├── index.html                  # semantic markup only — no styling, no behavior
 ├── styles.css                  # design tokens → base → components → sections → responsive
-├── main.js                     # 5 isolated modules: Theme, Dag, Bibtex, Stars, Term
+├── main.js                     # 6 isolated modules: Theme, Dag, Bibtex, Stars, Spy, Term
 ├── favicon.svg
 ├── Iliya_Mirzaei_Resume.pdf    # linked from the hero — publicly downloadable
 └── assets/
