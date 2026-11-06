@@ -10,27 +10,32 @@ Live at **https://iliyami.github.io** (GitHub Pages, `iliyami/iliyami.github.io`
 site/
 ├── index.html                  # semantic markup only — no styling, no behavior
 ├── styles.css                  # design tokens → base → components → sections → responsive
-├── main.js                     # 6 isolated modules: Theme, Dag, Bibtex, Stars, Spy, Term
+├── main.js                     # 5 isolated modules: Theme, Dag, Bibtex, Spy, Term
 ├── favicon.svg
 ├── Iliya_Mirzaei_Resume.pdf    # linked from the hero — publicly downloadable
-└── assets/
-    └── headshot.jpeg
+├── assets/
+│   └── headshot.jpeg
+└── .github/                    # nightly MacSai stats job (see below)
 ```
 
 ## Design decisions
 
 - **Tokens first**: all colors/spacing live in CSS custom properties on `:root`; the light theme overrides only the token layer (`body[data-theme="light"]`), so component rules never branch on theme.
-- **Progressive enhancement**: the page is fully readable with JS disabled — the canvas background, star counts, theme persistence, and terminal are enhancements. GitHub API failures fall back to the static star count.
+- **Progressive enhancement**: the page is fully readable with JS disabled — the canvas background, theme persistence, and terminal are enhancements.
 - **Accessibility**: semantic landmarks (`nav`/`main`/`section`/`article`), skip link, `:focus-visible` ring, `aria-label`s on icon-only controls, `prefers-reduced-motion` stops the DAG drift and float animations.
 - **Theme**: **dark by default, deliberately** — the site is designed dark-first, so every first-time visitor gets that look regardless of their OS `prefers-color-scheme`. Only a previous explicit toggle overrides it, persisted in `localStorage` and whitelisted to `dark`/`light` before it reaches the DOM. Don't "fix" this to follow the OS.
 - **No framework**: at this size a framework is overhead; modules communicate via one `themechange` event.
-- **Third-party lockdown**: the two Phosphor icon stylesheets are version-pinned *and* carry SRI hashes — bump the hashes with the version or the icons stop loading. A `Content-Security-Policy` meta tag in `index.html` allowlists exactly the hosts in use (`fonts.googleapis.com`, `fonts.gstatic.com`, `unpkg.com`, `api.github.com`) and blocks everything else, including inline `<script>`.
+- **Third-party lockdown**: the two Phosphor icon stylesheets are version-pinned *and* carry SRI hashes — bump the hashes with the version or the icons stop loading. A `Content-Security-Policy` meta tag in `index.html` allowlists exactly the hosts in use (`fonts.googleapis.com`, `fonts.gstatic.com`, `unpkg.com`) and blocks everything else, including inline `<script>`.
 
 ## Editing
 
 - Content → `index.html` (BibTeX entries live in `main.js` → `Bibtex.entries`).
 - Colors → token block at the top of `styles.css` (SBU-red accent ramp).
 - DAG behavior → `Dag` constants (`LANES`, `GAP`, `SPEED`) in `main.js`.
+
+## Live MacSai stats
+
+MacSai's GitHub stars and total release downloads are baked into `index.html` by `.github/workflows/update-stats.yml`, which runs nightly (and on demand from the Actions tab). `.github/scripts/update_stats.py` rewrites the text of every element tagged `data-stat="macsai-stars"` / `data-stat="macsai-downloads"` and the workflow commits only when a displayed value changes. Numbers are floored (`2,097` → `2K+`, `126,468` → `126K+`) so they never overstate. Visitors make no API calls. To show a stat somewhere new, add a `data-stat` attribute to the element.
 
 ## Easter egg
 

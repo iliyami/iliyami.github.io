@@ -264,23 +264,6 @@ const Bibtex = {
   },
 };
 
-/* ---------- GitHub stars (progressive enhancement) ---------- */
-const Stars = {
-  async init() {
-    try {
-      const res = await fetch('https://api.github.com/users/iliyami/repos?per_page=100');
-      if (!res.ok) return;
-      const repos = await res.json();
-      const macsai = repos.find((r) => /macsai/i.test(r.name));
-      // Guard: only trust the fetch if it's plausibly the real 1.8K-star repo.
-      if (!macsai || macsai.stargazers_count < 1000) return;
-      const n = macsai.stargazers_count;
-      const label = n >= 1000 ? (n / 1000).toFixed(1) + 'K' : String(n);
-      document.querySelectorAll('[data-stars="macsai"]').forEach((el) => { el.textContent = label; });
-    } catch { /* offline or rate-limited — keep static value */ }
-  },
-};
-
 /* ---------- nav scrollspy ----------
    Marks the nav link for whichever section crosses the upper third of the viewport. */
 const Spy = {
@@ -372,7 +355,6 @@ document.addEventListener('DOMContentLoaded', () => {
   Theme.init();
   Dag.init();
   Bibtex.init();
-  Stars.init();
   Term.init();
   Spy.init();
 });

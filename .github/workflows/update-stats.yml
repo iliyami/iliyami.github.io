@@ -1,0 +1,35 @@
+name: Update MacSai stats
+
+on:
+  schedule:
+    - cron: "17 6 * * *" # nightly, ~1–2am New York time
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-stats
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Bake stars and downloads into index.html
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 .github/scripts/update_stats.py
+
+      - name: Commit if a displayed number changed
+        run: |
+          if git diff --quiet -- index.html; then
+            echo "No change."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -am "Update MacSai stats"
+          git push
